@@ -12,6 +12,6 @@ setup(
 	author_email = 'yoshihiko.aochi@nuance.com',
 	url = 'https://github.com/',
 	keywords = 'pip github python ops omnipage',
-	packages = find_packages()
+	packages = find_packages(),
 	install_requires = ["poster", "twisted"]
 )
