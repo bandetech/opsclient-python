@@ -1,7 +1,7 @@
-from opsclient import OPSClient
+from opsclient import opsclient
 
 ops_server = '<put your server address>'
-client = OPSClient(ops_server)
+client = opsclient.OPSClient(ops_server)
 
 print client.server
 
