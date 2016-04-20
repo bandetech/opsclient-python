@@ -16,11 +16,10 @@ $ pip install git+https://github.com/bandetech/opsclient-python.git
 
 Please see samples/libTest.py
 
-## Limitation
+## Limitations
 
 * Authentication is not implemented.
 * There are some unimplemented methods.
   * CreatePreallocatedJob
   * ProcessOnCall
-  * SetJobDataDescription
   * CreateLocalJob

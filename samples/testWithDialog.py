@@ -1,4 +1,4 @@
-from opsclient import opsclient
+import opsclient
 import Tkinter
 import tkFileDialog
 

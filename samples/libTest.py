@@ -1,4 +1,4 @@
-from opsclient import opsclient
+import opsclient
 
 ops_server = '<put your server address>'
 client = opsclient.OPSClient(ops_server)
