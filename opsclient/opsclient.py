@@ -29,6 +29,7 @@ class OPSClient(object):
         self.CANCEL_JOB_URL = self.JOB_URL_BASE + "CancelJob"
         self.DELETE_JOB_DATA_URL = self.JOB_URL_BASE + "DeleteJobData"
         self.GET_JOB_TYPES_URL = self.JOB_URL_BASE + "GetJobTypes"
+        self.SET_JOB_DATA_DESCRIPTION = self.JOB_URL_BASE + 'SetJobDataDescription'
 
     def __server_request(self, url, requestParams):
         if(requestParams is not None):
@@ -104,18 +105,19 @@ class OPSClient(object):
     def getJobDataDescription(self, jobId):
         request_values = {'jobId':jobId}
         response =  self.__server_request(self.GET_JOBDATA_DESCRIPTION_URL, request_values)
-        print 'GetJobDataDescription Return :', response
+        return response
 
     # Get Notification Info
     def getNotificationInfo(self, jobId):
         request_values = {'jobId':jobId}
         response =  self.__server_request(self.GET_JOB_NOTIFICATION_INFO_URL, request_values)
-        print 'GetJobNotificationInfo Return :', response
+        return response
 
     # Cancel Job
-    def cabcelJob(self, jobId):
+    def cancelJob(self, jobId):
         request_values = {'jobId':jobId}
         response =  self.__server_request(self.CANCEL_JOB_URL, request_values)
+        return response
 
     # Delete Job Data
     def deleteJobData(self, jobId, dataTypeFlag):
@@ -128,6 +130,16 @@ class OPSClient(object):
         #print 'GetJobTypes return :', response
         return response
 
+    # Set Job Data Description
+    def setJobDataDescription(self, jobId, fileDescriptions):
+        request_values = {'FileDescriptions' : fileDescriptions}
+        response = self.__server_request_post(self.SET_JOB_DATA_DESCRIPTION + '?jobId='+jobId, request_values)
+
+    # Get Job Indo
+    def getJobInfo(self, jobId):
+        request_values = {'jobId':jobId}
+        response =  self.__server_request(self.GET_JOBINFO_URL, request_values)
+        return response
 
 class NotificationService(protocol.Protocol):
     def connectionMade(self):
